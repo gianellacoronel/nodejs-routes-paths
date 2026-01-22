@@ -3,6 +3,8 @@ import http from "node:http";
 const PORT = 8000;
 const __dirname = import.meta.dirname;
 
+// console.log("CWD (Current Working Directory)", process.cwd()); -> Also, it gives the path
+
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/html");
