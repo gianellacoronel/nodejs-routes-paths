@@ -10,14 +10,24 @@ export async function serveStatic(baseDir, req, res) {
     req.url === "/" ? "index.html" : req.url,
   );
 
+  const extension = path.extname(filePath);
+
+  const contentType = getContentType(extension);
+
   try {
-    const content = await fs.readFile(filePath);
-    const extension = path.extname(filePath);
-
-    const contentType = getContentType(extension);
-
+    const content = await fs.readFile(path.join(filePath));
     sendResponse(res, content, 200, contentType);
   } catch (error) {
-    console.log(error);
+    if (error.code === "ENOENT") {
+      const content = await fs.readFile(path.join(filePublicPath, "404.html"));
+      sendResponse(res, content, 200, contentType);
+    } else {
+      sendResponse(
+        res,
+        `<html><h1>Server Error: ${err.code}</h1></html>`,
+        500,
+        "text/html",
+      );
+    }
   }
 }
