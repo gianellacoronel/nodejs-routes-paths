@@ -1,9 +1,12 @@
 import http from "node:http";
 import { serveStatic } from "./utils/serveStatic.js";
+import { getData } from "./utils/getData.js";
 
 const PORT = 8000;
 
 const __dirname = import.meta.dirname;
+
+console.log(await getData());
 
 /* Make any changes needed to the code below. */
 const server = http.createServer(async (req, res) => {
