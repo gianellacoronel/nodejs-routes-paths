@@ -2,7 +2,17 @@ import http from "node:http";
 import path from "node:path";
 
 const PORT = 8000;
+// This __dirname is a global variable when you use CommonJs
+// But, if you use ESModule, we have to use import.meta.dirname, but using v20+
 const __dirname = import.meta.dirname;
+
+// ES modules before v20
+/* import path from "node:path";
+ import url from "node:url";
+
+ const __filename = url.fileURLToPath(import.meta.url);
+ const __dirname = path.dirname(__filename);
+*/
 
 // console.log("CWD (Current Working Directory)", process.cwd()); -> Also, it gives the path
 
