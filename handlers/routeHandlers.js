@@ -17,12 +17,11 @@ export async function handleGet(res) {
 // sendResponse()
 
 export async function handlePost(req, res) {
-  /*
-  Challenge 2:
-    1. Create a const 'rawBody' to store whatever is returned by parseJSONBody()
-    2. For now, log 'rawBody'.
-    3. Input an entry on the front end to test.
-  */
-  const rawBody = await parseJSONBody(req);
-  console.log(rawBody);
+  try {
+    const parsedBody = await parseJSONBody(req);
+    await addNewSighting(parsedBody);
+    sendResponse(res, JSON.stringify(parsedBody), 201, "application/json");
+  } catch (err) {
+    sendResponse(res, JSON.stringify({ error: err }), 400, "application/json");
+  }
 }
