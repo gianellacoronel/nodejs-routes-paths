@@ -1,6 +1,7 @@
 // handleGet
 
 import { getData } from "../utils/getData.js";
+import { parseJSONBody } from "../utils/parseJSONBody.js";
 import { sendResponse } from "../utils/sendResponse.js";
 
 export async function handleGet(res) {
@@ -15,12 +16,13 @@ export async function handleGet(res) {
 // addNewSighting() will do the donkey work of adding the data to our dataset
 // sendResponse()
 
-/*
-Challenge:
-  1. Create and export a function called handlePost().
-  2. For now, that function can just log 'POST request received'.
-*/
-
-export function handlePost(req, res) {
-  console.log("POST request received");
+export async function handlePost(req, res) {
+  /*
+  Challenge 2:
+    1. Create a const 'rawBody' to store whatever is returned by parseJSONBody()
+    2. For now, log 'rawBody'.
+    3. Input an entry on the front end to test.
+  */
+  const rawBody = await parseJSONBody(req);
+  console.log(rawBody);
 }
