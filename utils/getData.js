@@ -22,5 +22,4 @@ hint.md for help
     console.log(error);
     return [];
   }
-  return "I am from getData()!";
 }
