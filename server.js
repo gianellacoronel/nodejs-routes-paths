@@ -1,7 +1,19 @@
 import http from "node:http";
 import { serveStatic } from "./utils/serveStatic.js";
-import { getData } from "./utils/getData.js";
 import { handleGet, handlePost } from "./handlers/routeHandlers.js";
+
+/*
+Challenge:
+
+DO NOT WRITE CODE IN SERVER.JS
+
+1. Sanitize the incoming data.
+    Allow only the <b> tag and no attributes.
+
+2. Test it with the code in story.md.
+
+   hint.md for help
+*/
 
 const PORT = 8000;
 

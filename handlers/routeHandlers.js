@@ -1,6 +1,7 @@
 import { addNewSighting } from "../utils/addNewSighting.js";
 import { getData } from "../utils/getData.js";
 import { parseJSONBody } from "../utils/parseJSONBody.js";
+import { sanitizeInput } from "../utils/sanitizeInput.js";
 import { sendResponse } from "../utils/sendResponse.js";
 
 export async function handleGet(res) {
@@ -12,7 +13,8 @@ export async function handleGet(res) {
 export async function handlePost(req, res) {
   try {
     const parsedBody = await parseJSONBody(req);
-    await addNewSighting(parsedBody);
+    const sanitizedBody = sanitizeInput(parsedBody);
+    await addNewSighting(sanitizedBody);
     sendResponse(res, JSON.stringify(parsedBody), 201, "application/json");
   } catch (err) {
     sendResponse(res, JSON.stringify({ error: err }), 400, "application/json");
