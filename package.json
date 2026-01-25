@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/gianellacoronel/nodejs-routes-paths/issues"
   },
-  "homepage": "https://github.com/gianellacoronel/nodejs-routes-paths#readme"
+  "homepage": "https://github.com/gianellacoronel/nodejs-routes-paths#readme",
+  "dependencies": {
+    "sanitize-html": "^2.17.0"
+  }
 }
