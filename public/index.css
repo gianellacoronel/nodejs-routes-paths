@@ -26,7 +26,7 @@ body {
 body::before {
     position: absolute;
     content: "";
-    background-image: url("./images/ghostbg.png");
+    background-image: url("./images/ghostbg.jpg");
     background-size: cover;
     background-position: center 40%;
     top: 0;
@@ -247,6 +247,21 @@ main.form-container {
     gap: 1rem;
     padding: 0 1em;
     margin: 2em 0;
+}
+
+.live-container {
+    border: 1px solid #fff;
+    background-color: #fff;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1em;
+    border-radius: 10px;
+    text-align: center;
+    color: #333;
+    margin-top: 2em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* min-height: 100px; */
 }
 
 /* ============================== */

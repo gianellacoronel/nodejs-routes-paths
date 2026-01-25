@@ -1,6 +1,6 @@
 import http from "node:http";
 import { serveStatic } from "./utils/serveStatic.js";
-import { handleGet, handlePost } from "./handlers/routeHandlers.js";
+import { handleGet, handleNews, handlePost } from "./handlers/routeHandlers.js";
 
 /*
 Challenge:
@@ -26,6 +26,8 @@ const server = http.createServer(async (req, res) => {
     } else if (req.method === "POST") {
       return await handlePost(req, res);
     }
+  } else if (req.url === "/api/news") {
+    return await handleNews(req, res);
   } else if (!req.url.startsWith("/api")) {
     return await serveStatic(__dirname, req, res);
   }
